@@ -1,5 +1,5 @@
 #include "LaboratoryTwo.h"
-
+// нельзя создавать новые объекты, 
 AutoSalon* AutoSalon::instance = nullptr;
 AutoSalon& AutoSalon::getInstance() {
     if (instance == nullptr) {
@@ -32,14 +32,14 @@ void AutoSalon::sell(int index) {
             CarArray[i] = CarArray[i + 1];
         }
         --counter;
-        
+
     }
-    
+
     else {
         cout << "Данной машины не сущетсвует." << endl;
     }
 }
-
+// функции нужны для итератор, итератор не должен знать свои объект
 Car* AutoSalon::begin() {
     return CarArray[0];
 }
