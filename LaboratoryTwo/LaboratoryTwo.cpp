@@ -23,16 +23,16 @@ int main()
     cout << "Проверка количества автомобилей в автосалоне\n";
     cout << "Количество автомобилей в автосалоне: " << salon.getCount() << endl;
 
-    cout << "Создание объекта класса AutoDealer\n";
-    AutoDealer dealer(salon);
+    cout << "Создание объекта класса AutoDealer\n\n";
+    AutoDealer dealer = salon.createAutoDealer();
 
-    cout << "Проверка метода next класса AutoDealer\n";
-    Car* nextCar = dealer.next();
-    cout << "автомобиль в автосалоне: " << *nextCar << endl;
-    nextCar = dealer.next();
-    cout << "Следующий автомобиль в автосалоне: " << *nextCar << endl;
-    nextCar = dealer.next();
-    cout << "Последний автомобиль в автосалоне: " << *nextCar << endl;
+    while (dealer.hasNext()) {
+        Car* car = *dealer;
+        if (car) {
+            std::cout << *car << std::endl;
+        }
+        ++dealer;
+    }
     
     
     return 0;

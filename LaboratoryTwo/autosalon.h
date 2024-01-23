@@ -1,5 +1,6 @@
 #pragma once
 #include "LaboratoryTwo.h"
+#include "autodealer.h"
 
 // SingleTon
 class AutoSalon {
@@ -11,8 +12,9 @@ public:
 
 	int getCount();
 
-	Car* begin();
-	Car* end();
+	AutoDealer createAutoDealer() {
+		return AutoDealer(CarArray, counter);
+	}
 
 	Car* operator[](int index);
 

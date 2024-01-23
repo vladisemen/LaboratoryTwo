@@ -1,13 +1,22 @@
-#pragma once
 #include "LaboratoryTwo.h"
 
 class AutoDealer {
 public:
-    AutoDealer(AutoSalon& salon_);
+    AutoDealer(Car** carArray, int counter);
+    
+    bool hasNext();
 
-    Car* next();
+    // Инкремент для перехода к следующему элементу
+    AutoDealer& operator++();
+
+    // Оператор разыменования для получения текущего элемента
+    Car* operator*();
+
+    // Оператор неравенства для проверки окончания итерации
+    bool operator!=(const AutoDealer& other);
 
 private:
-    AutoSalon& salon;
-    int index;
+    Car** carArray_;
+    int counter_;
+    int currentIndex;
 };
